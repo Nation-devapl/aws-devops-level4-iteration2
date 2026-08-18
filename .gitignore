@@ -1,0 +1,14 @@
+# Terraform local artifacts and secrets
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+tfplan
+.terraform.lock.hcl
+
+# Credentials
+*.pem
+*.key
+credentials
+.aws/
+.env
