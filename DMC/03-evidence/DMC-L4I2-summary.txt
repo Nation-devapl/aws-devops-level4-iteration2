@@ -1,0 +1,30 @@
+DMC-L4I2-001–DMC-L4I2-010 – SAMLAD VERIFIERING
+Datum: 2026-08-18
+Källfil: Level4-Iteration2.sh
+Riktiga AWS- och Terraform-kommandon körda: ja
+Miljö: Ubuntu/WSL, region eu-north-1
+
+DMC-L4I2-001: GODKÄND – projekt hittas under /mnt/c/Users/Pette/...
+DMC-L4I2-002: GODKÄND – Unix LF, inget set: pipefail
+DMC-L4I2-003: GODKÄND – aws login i Ubuntu
+DMC-L4I2-004: GODKÄND – SG devops-school-level3 / sg-09cf45c3a28bba35f, key petter-ec2-key
+DMC-L4I2-005: GODKÄND – bucket petter.wastesson-apl-devops-terraform-state
+DMC-L4I2-006: GODKÄND – terraform init -migrate-state -force-copy
+DMC-L4I2-007: GODKÄND – git -c user.name/email för commit
+DMC-L4I2-008: DOKUMENTERAD – EC2 ersatt, se DMC-L4I2-008-test.txt
+DMC-L4I2-009: GODKÄND – AMI från state, LF, apply_without_replacing, status wait, HTTP-retry
+DMC-L4I2-010: GODKÄND – bash Level4-Iteration2.sh verify
+
+State-bucket: petter.wastesson-apl-devops-terraform-state
+Backend key: devops.school
+Encrypt: ja
+use_lockfile: ja
+Versionering: på
+Terraform plan: No changes
+HTTP: YES
+Innehåll: Hello Me!
+Exitkod: 0
+Instans: i-0099a2a470a02b105
+DNS: ec2-51-20-81-254.eu-north-1.compute.amazonaws.com
+
+SLUTRESULTAT: GODKÄND

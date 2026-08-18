@@ -1,0 +1,33 @@
+DMC-L4I2-008 – Phase 3 EC2-replacement och HTTP connection refused
+Datum: 2026-08-18
+Källfil: Level4-Iteration2.sh
+Riktiga AWS- och Terraform-kommandon körda: ja
+
+Incident:
+terraform apply -auto-approve i verify-fasen ersatte EC2.
+Förstörd instans: i-0597a85128b85c3ed
+Ny instans: i-0099a2a470a02b105
+DNS: ec2-51-20-81-254.eu-north-1.compute.amazonaws.com
+
+HTTP direkt efter replacement:
+12 curl-försök misslyckades med connection refused mot port 80.
+Nginx var inte klar efter yum/Ansible på den nya instansen.
+
+Orsak:
+user_data CRLF/whitespace skilde sig från state.
+user_data_replace_on_change tvingade replacement.
+
+Åtgärd (DMC-L4I2-009):
+AMI återanvänds från Terraform state.
+user-data.web.sh normaliseras till LF.
+apply_without_replacing avbryter om planen skulle destroy/replace.
+Väntan på instance status checks.
+HTTP-retry cirka 10 minuter.
+
+Efterföljande verify (DMC-L4I2-010):
+Terraform plan: No changes
+HTTP: YES
+Innehåll: Hello Me!
+Exitkod: 0
+
+SLUTRESULTAT EFTER ÅTGÄRD: GODKÄND
