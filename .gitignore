@@ -1,14 +1,16 @@
-# Terraform local artifacts and secrets
-.terraform/
+**/.terraform/*
+
+# .tfstate files
 *.tfstate
 *.tfstate.*
-*.tfvars
-tfplan
-.terraform.lock.hcl
 
-# Credentials
-*.pem
-*.key
-credentials
-.aws/
-.env
+# .tfvars files
+*.tfvars
+
+tfplan
+
+.terraform.lock.hcl
+result.json
+src.zip
+
+backend.tf
